@@ -6,8 +6,6 @@ RegisterNetEvent("as-commands:motmenu", function()
     local getPlate = GetVehicleNumberPlateText(GetVehiclePedIsIn(PlayerPedId())) -- Get the plate here otherwise we call it twice
     if Config.MOTMenu == "qb" then
     motResult = exports['qb-input']:ShowInput({
-    if Config.MOTMenu == "qb" then
-    motResult = exports['qb-input']:ShowInput({
         header = "MOT Testing",
         submitText = "Submit",
         inputs = {
@@ -70,4 +68,3 @@ Citizen.CreateThread(function()
         end
     end)
 end)
-
