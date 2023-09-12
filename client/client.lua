@@ -2,7 +2,10 @@ local QBCore = exports['qb-core']:GetCoreObject()
 
 RegisterNetEvent("as-commands:motmenu", function()
     local motResult = nil
+    local motResult = nil
     local getPlate = GetVehicleNumberPlateText(GetVehiclePedIsIn(PlayerPedId())) -- Get the plate here otherwise we call it twice
+    if Config.MOTMenu == "qb" then
+    motResult = exports['qb-input']:ShowInput({
     if Config.MOTMenu == "qb" then
     motResult = exports['qb-input']:ShowInput({
         header = "MOT Testing",
@@ -67,3 +70,4 @@ Citizen.CreateThread(function()
         end
     end)
 end)
+
