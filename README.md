@@ -53,7 +53,7 @@
 * qb-core
 * qb-menu
 
-* qb-input
+* qb-input\
 OR\
 * ox_lib
 
