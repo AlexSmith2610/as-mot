@@ -54,7 +54,7 @@
 * qb-menu
 
 * qb-input
-OR
+OR\
 * ox_lib
 
 # Notes
