@@ -57,8 +57,8 @@ end
 end)
 
 Citizen.CreateThread(function()
-    TriggerEvent('chat:addSuggestion', Config.MOTCMDSuggestion, 'Pass or Fail an MOT')
-    RegisterCommand(Config.MOTCMD, function()
+    TriggerEvent('chat:addSuggestion', '/mot', 'Pass or Fail an MOT')
+    RegisterCommand('mot', function()
         local Player = QBCore.Functions.GetPlayerData()
         local jobName = Player.job.name
         if jobName == Config.MOTJobs then
