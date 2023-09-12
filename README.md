@@ -51,8 +51,9 @@
 # Dependencies
 
 * qb-core
-* qb-input
 * qb-menu
+
+* qb-input or ox_lib
 
 # Notes
 
