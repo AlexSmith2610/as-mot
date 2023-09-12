@@ -1,6 +1,6 @@
 local QBCore = exports['qb-core']:GetCoreObject()
 
-RegisterNetEvent("as-commands:motHandler", function(motInfo,plate)
+RegisterNetEvent("as-commands:motHandlerQB", function(motInfo,plate)
     local Player = QBCore.Functions.GetPlayer(source) -- local tables are only temporary so dont need clearing
     local info = {
         firstname = Player.PlayerData.charinfo.firstname,
@@ -10,6 +10,24 @@ RegisterNetEvent("as-commands:motHandler", function(motInfo,plate)
     }
 
     if motInfo.motSuccess == "pass" then
+        Player.Functions.AddItem("motpass", 1, nil, info)
+        TriggerClientEvent('inventory:client:ItemBox', source, QBCore.Shared.Items["motpass"], 'add')
+    else
+        Player.Functions.AddItem("motfail", 1, nil, info)
+        TriggerClientEvent('inventory:client:ItemBox', source, QBCore.Shared.Items["motfail"], 'add')
+    end
+end)
+
+RegisterNetEvent("as-commands:motHandlerOX", function(motInfo,status,plate)
+    local Player = QBCore.Functions.GetPlayer(source) -- local tables are only temporary so dont need clearing
+    local info = {
+        firstname = Player.PlayerData.charinfo.firstname,
+        lastname = Player.PlayerData.charinfo.lastname,
+        motid = motInfo,
+        vehicleplate = plate
+    }
+
+    if status == "pass" then
         Player.Functions.AddItem("motpass", 1, nil, info)
         TriggerClientEvent('inventory:client:ItemBox', source, QBCore.Shared.Items["motpass"], 'add')
     else
