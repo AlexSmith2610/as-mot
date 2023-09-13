@@ -1,12 +1,9 @@
-**AS MOT**
-
 # THIS IS A WORK IN PROGRESS!
 
 # Features
 
 * **Input Unique MOT Number** - This allows your mechanics to put a number on the MOT certificate.
-* **Pass/Fail Options** - The mechanic can Pass or Fail the vehicle using a simple qb-menu interaction.
-* **Simple Chat Command** - You can customise the MOT menu command in the config.lua file!
+* **Pass/Fail Options** - The mechanic can Pass or Fail the vehicle using a simple qb-menu/ox_lib interaction.
 * **Job-Locked Command** - Select the job to lock it to. Multiple job support coming soon!
 
 # Installation
