@@ -3,7 +3,7 @@ game "gta5"
 
 author 'decaffeinatedtea'
 description 'MOT script made by Alex Smith with help from Jaysee'
-version 'v0.1.2'
+version 'v0.1.3'
 lua54 'yes'
 
 shared_scripts {
