@@ -88,7 +88,7 @@ elseif Config.TriggerType == "ped" then
               job = Config.MOTJobs, -- This is the job, this option won't show up if the player doesn't have this job, this can also be done with multiple jobs and grades, if you want multiple jobs you always need a grade with it: job = {["police"] = 0, ["ambulance"] = 2},
             }
           },
-          distance = 2.5, -- This is the distance for you to be at for the target to turn blue, this is in GTA units and has to be a float value
+          distance = 3.5, -- This is the distance for you to be at for the target to turn blue, this is in GTA units and has to be a float value
         },
     })
 end
