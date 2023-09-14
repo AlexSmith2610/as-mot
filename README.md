@@ -50,9 +50,9 @@
 
 * qb-core
 * qb-menu
+
 * qb-input or ox_lib
-* qb-target
-* qb-inventory
+
 
 # Notes
 
