@@ -5,6 +5,7 @@
 * **Input Unique MOT Number** - This allows your mechanics to put a number on the MOT certificate.
 * **Pass/Fail Options** - The mechanic can Pass or Fail the vehicle using a simple qb-menu/ox_lib interaction.
 * **Job-Locked Command** - Select the job to lock it to. Multiple job support coming soon!
+* **Optional Command or Ped** - Choose between a / command or a ped that spawns, and can be targeted with qb-target in the config!
 
 # Installation
 
@@ -49,8 +50,9 @@
 
 * qb-core
 * qb-menu
-
 * qb-input or ox_lib
+* qb-target
+* qb-inventory
 
 # Notes
 
