@@ -15,23 +15,31 @@ RegisterNetEvent("as-commands:motmenu", function()
                 isRequired = true, -- Optional [accepted values: true | false] but will submit the form if no value is inputted
             },
             {
-                text = "MOT Pass/Fail", -- text you want to be displayed as a input header
-                name = "motSuccess", -- name of the input should be unique otherwise it might override
-                type = "radio", -- type of the input - Radio is useful for "or" options e.g; billtype = Cash OR Bill OR bank
-                options = { -- The options (in this case for a radio) you want displayed, more than 6 is not recommended
-                    { value = "pass", text = "Pass" }, -- Options MUST include a value and a text option
-                    { value = "fail", text = "Fail" }, -- Options MUST include a value and a text option
+                text = "MOT Pass/Fail",
+                name = "motSuccess",
+                type = "radio",
+                options = {
+                    { value = "pass", text = "Pass" },
+                    { value = "fail", text = "Fail" },
                 },
+            },
+            {
+                text = "Expiry Date",
+                name = "expiryDate",
+                type = "text",
+                isRequired = true,
             },
         }
     }) 
 
     if motResult ~= nil then
         if not motResult.motID == nil then
-            QBCore.Functions.Notify('You must enter an MOT identification number', 'primary')
+            QBCore.Functions.Notify('You must enter an MOT identification number', 'fail')
             return
+        elseif not motResult.expiryDate == nil then
+            QBCore.Functions.Notify('You must enter an expiry date', 'fail')
         end
-        TriggerServerEvent("as-commands:motHandlerQB",motResult,getPlate)
+        TriggerServerEvent("as-commands:motHandlerQB", motResult, getPlate)
     end
 
     else if Config.MOTMenu == "ox" then
@@ -40,7 +48,8 @@ RegisterNetEvent("as-commands:motmenu", function()
             {type = 'select', label = 'MOT Pass/Fail', required = true, icon = 'check', options = {
             { value = "pass", label = "Pass" },
             { value = "fail", label = "Fail" }}
-            }
+            },
+            {type = 'input', label = 'Expiry Date', required = true, icon = 'hourglass-start'},
         })
         if not mot then return end
 
@@ -48,8 +57,10 @@ RegisterNetEvent("as-commands:motmenu", function()
             if not mot[1] == nil then
                 QBCore.Functions.Notify('You must enter an MOT identification number', 'primary')
                 return
+            elseif not mot[3] == nil then
+                QBCore.Functions.Notify('You must enter an expiry date', 'fail')
             end
-            TriggerServerEvent("as-commands:motHandlerOX",mot[1],mot[2],getPlate)
+            TriggerServerEvent("as-commands:motHandlerOX", mot[1], mot[2], mot[3], getPlate)
         end
     end
 end

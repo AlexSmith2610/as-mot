@@ -1,12 +1,13 @@
 local QBCore = exports['qb-core']:GetCoreObject()
 
-RegisterNetEvent("as-commands:motHandlerQB", function(motInfo,plate)
-    local Player = QBCore.Functions.GetPlayer(source) -- local tables are only temporary so dont need clearing
+RegisterNetEvent("as-commands:motHandlerQB", function(motInfo, plate)
+    local Player = QBCore.Functions.GetPlayer(source)
     local info = {
         firstname = Player.PlayerData.charinfo.firstname,
         lastname = Player.PlayerData.charinfo.lastname,
         motid = motInfo.motID,
-        vehicleplate = plate
+        vehicleplate = plate,
+        expiry = motInfo.expiryDate
     }
 
     if motInfo.motSuccess == "pass" then
@@ -18,13 +19,14 @@ RegisterNetEvent("as-commands:motHandlerQB", function(motInfo,plate)
     end
 end)
 
-RegisterNetEvent("as-commands:motHandlerOX", function(motInfo,status,plate)
-    local Player = QBCore.Functions.GetPlayer(source) -- local tables are only temporary so dont need clearing
+RegisterNetEvent("as-commands:motHandlerOX", function(motInfo, status, expiryDate, plate)
+    local Player = QBCore.Functions.GetPlayer(source)
     local info = {
         firstname = Player.PlayerData.charinfo.firstname,
         lastname = Player.PlayerData.charinfo.lastname,
         motid = motInfo,
-        vehicleplate = plate
+        vehicleplate = plate,
+        expiry = expiryDate
     }
 
     if status == "pass" then
